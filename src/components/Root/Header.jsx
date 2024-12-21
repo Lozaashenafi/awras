@@ -14,7 +14,7 @@ function Header() {
   return (
     <>
       {/* Header */}
-      <nav className="flex items-center justify-between px-6 py-4 relative z-20 bg-white">
+      <nav className="flex items-center justify-between px-6 py-4 w-full bg-white">
         {/* Logo */}
         <img className="w-20" src={logo} alt="Logo" />
 

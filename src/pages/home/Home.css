@@ -1,0 +1,37 @@
+.customTop {
+  top: -1.5rem;
+  left: -1.5rem;
+}
+.fontFam {
+  font-family: "Inter", serif;
+  line-height: 60px;
+}
+.customTopLeftUper {
+  top: 1.5rem;
+  left: 2.5rem;
+}
+.customTopLeftUnder {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.customTopRightUnder {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.customTopRightUpper {
+  top: 12.5rem;
+  left: -14rem;
+}
+.initial {
+  align-items: initial;
+}
+/* service  */
+.cardBorder {
+  box-shadow: 0 2px 11px rgba(0, 0, 0, 0.1); /* Adjust blur and spread for subtle effect */
+  /* border: 0.2px solid #d3d3d3; Light gray border */
+  border-radius: 10px; /* Optional: for rounded corners */
+}
+.leftAlign {
+  text-align: left; /* Align text to the left */
+  margin: 0; /* Remove default margin */
+}
