@@ -5,6 +5,8 @@ import "./Home.css";
 import OurService from "../../components/Root/OurService";
 import PopularClasses from "../../components/Root/PopularClasses";
 import Footer from "../../components/Root/Footer";
+import Tutors from "../../components/Root/Tutors";
+import TestimonialSlider from "../../components/Root/TestimonialSlider";
 
 function Home() {
   return (
@@ -14,6 +16,8 @@ function Home() {
         <Hero />
         <OurService />
         <PopularClasses />
+        <Tutors />
+        <TestimonialSlider />
         <Footer />
       </div>
     </>

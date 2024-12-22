@@ -44,9 +44,9 @@ const PopularClasses = () => {
   ];
   return (
     <section className="section-container bg-white">
-      <div className="text-center leftAlign">
+      <div className="text-center leftAlign ml-8">
         <h2 className="text-orange font-semibold mb-2">Explore Programs</h2>
-        <h3 className="text-3xl text-dark font-bold my-7">
+        <h3 className="text-3xl text-dark font-bold my-4">
           Our Most Popular Class
         </h3>
         <p className="text-gray-600 mb-8">
