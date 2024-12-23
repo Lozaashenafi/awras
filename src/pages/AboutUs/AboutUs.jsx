@@ -1,7 +1,13 @@
 import React from "react";
+import About from "../../components/AboutUs/About";
+import "./AboutUs.css";
 
 function AboutUs() {
-  return <div>AboutUs</div>;
+  return (
+    <>
+      <About />
+    </>
+  );
 }
 
 export default AboutUs;
