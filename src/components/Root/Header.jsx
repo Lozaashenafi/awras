@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/icons/awras.png";
 import search from "../../assets/icons/search.png";
 import menuIcon from "../../assets/icons/menu.png";
@@ -14,9 +15,9 @@ function Header() {
   return (
     <>
       {/* Header */}
-      <nav className="flex items-center justify-between px-6 py-4 w-full bg-white">
+      <nav className="navStick flex items-center justify-between px-6 py-2 w-full bg-white">
         {/* Logo */}
-        <img className="w-20" src={logo} alt="Logo" />
+        <img className="w-16" src={logo} alt="Logo" />
 
         {/* Search Bar */}
         <div className="relative flex-grow max-w-sm hidden md:flex">
@@ -37,18 +38,38 @@ function Header() {
 
         {/* Links and Buttons */}
         <div className="hidden lg:flex space-x-4 text-sm font-semibold">
-          <a href="#" className="text-black">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-orange" : "text-black"
+            }
+          >
             Home
-          </a>
-          <a href="#" className="text-black">
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "text-orange" : "text-black"
+            }
+          >
             About Us
-          </a>
-          <a href="#" className="text-black">
+          </NavLink>
+          <NavLink
+            to="/courses"
+            className={({ isActive }) =>
+              isActive ? "text-orange" : "text-black"
+            }
+          >
             Courses
-          </a>
-          <a href="#" className="text-black">
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? "text-orange" : "text-black"
+            }
+          >
             Contact Us
-          </a>
+          </NavLink>
         </div>
 
         {/* Sign-in Buttons */}
@@ -77,18 +98,38 @@ function Header() {
       {isMenuOpen && (
         <div className="absolute top-8 right-0 mt-16 w-56 bg-white shadow-lg z-10 rounded-lg">
           <div className="flex flex-col items-start py-4 px-4 text-sm font-semibold">
-            <a href="#" className="text-black py-1">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-primaryBlue py-1" : "text-black py-1"
+              }
+            >
               Home
-            </a>
-            <a href="#" className="text-black py-1">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "text-primaryBlue py-1" : "text-black py-1"
+              }
+            >
               About Us
-            </a>
-            <a href="#" className="text-black py-1">
+            </NavLink>
+            <NavLink
+              to="/courses"
+              className={({ isActive }) =>
+                isActive ? "text-primaryBlue py-1" : "text-black py-1"
+              }
+            >
               Courses
-            </a>
-            <a href="#" className="text-black py-1">
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "text-primaryBlue py-1" : "text-black py-1"
+              }
+            >
               Contact Us
-            </a>
+            </NavLink>
             <div className="flex flex-col items-start gap-2 mt-4">
               <button className="text-primaryBlue text-sm font-bold w-full text-left">
                 Sign in

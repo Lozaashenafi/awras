@@ -7,19 +7,17 @@ import PopularClasses from "../../components/Root/PopularClasses";
 import Footer from "../../components/Root/Footer";
 import Tutors from "../../components/Root/Tutors";
 import TestimonialSlider from "../../components/Root/TestimonialSlider";
+import BlogSection from "../../components/Root/BlogSection";
 
 function Home() {
   return (
     <>
-      <div className="homepage-container bg-white min-h-screen  flex flex-col items-center">
-        <Header />
-        <Hero />
-        <OurService />
-        <PopularClasses />
-        <Tutors />
-        <TestimonialSlider />
-        <Footer />
-      </div>
+      <Hero />
+      <OurService />
+      <PopularClasses />
+      <Tutors />
+      <TestimonialSlider />
+      <BlogSection />
     </>
   );
 }

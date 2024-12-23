@@ -4,7 +4,7 @@ import hero from "../../assets/images/hero.png";
 function Hero() {
   return (
     <>
-      <div className="container mx-auto block   items-center justify-around px-6 py-12 relative initial md:flex ">
+      <div className="container mx-auto block mt-20   items-center justify-around px-6 py-12 relative initial md:flex ">
         <div className="w-2"></div>
         <div className="max-w-xl">
           <div className="absolute opacity-25 w-72 h-72 border border-primaryBlue rounded-full customTopLeftUper left-6">

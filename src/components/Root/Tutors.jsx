@@ -1,4 +1,7 @@
 import React from "react";
+import image1 from "../../assets/images/Avatar.png";
+import image2 from "../../assets/images/Avatar3.png";
+import image3 from "../../assets/images/Avatar2.png";
 
 const tutors = [
   {
@@ -6,7 +9,7 @@ const tutors = [
     title: "Application Support Analyst Lead",
     description:
       "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    image: "https://via.placeholder.com/150", // Replace with the actual image URL
+    image: image1, // Replace with the actual image URL
     twitter: "#",
     linkedin: "#",
   },
@@ -14,7 +17,7 @@ const tutors = [
     name: "Courtney Henry",
     title: "Director, Undergraduate Analytics and Planning",
     description: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
-    image: "https://via.placeholder.com/150",
+    image: image2,
     twitter: "#",
     linkedin: "#",
   },
@@ -22,7 +25,7 @@ const tutors = [
     name: "Albert Flores",
     title: "Career Educator",
     description: "Former PM for Linear, Lambda School, and On Deck.",
-    image: "https://via.placeholder.com/150",
+    image: image3,
     twitter: "#",
     linkedin: "#",
   },
@@ -30,7 +33,7 @@ const tutors = [
     name: "Marvin McKinney",
     title: "Co-op & Internships Program & Operations Manager",
     description: "Former frontend dev for Linear, Coinbase, and Postscript.",
-    image: "https://via.placeholder.com/150",
+    image: image2,
     twitter: "#",
     linkedin: "#",
   },
@@ -50,19 +53,23 @@ const Tutors = () => {
           {tutors.map((tutor, index) => (
             <div
               key={index}
-              className="bg-gray-50 p-6 rounded-lg shadow-lg text-center"
+              className="bg-gray-50 p-6 rounded-lg shadow-lg flex flex-col h-full"
             >
-              <img
-                src={tutor.image}
-                alt={tutor.name}
-                className="w-24 h-24 rounded-full mx-auto"
-              />
-              <h3 className="mt-4 text-xl font-semibold text-dark">
-                {tutor.name}
-              </h3>
-              <p className="text-orange mt-2">{tutor.title}</p>
-              <p className="text-text mt-4 text-sm">{tutor.description}</p>
-              <div className="flex justify-center mt-4 space-x-4">
+              <div className="text-center">
+                <img
+                  src={tutor.image}
+                  alt={tutor.name}
+                  className="w-24 h-24 rounded-full mx-auto"
+                />
+                <h3 className="mt-4 text-xl font-semibold text-dark">
+                  {tutor.name}
+                </h3>
+                <p className="text-orange mt-2">{tutor.title}</p>
+                <p className="text-text mt-4 text-sm">{tutor.description}</p>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="mt-auto flex justify-center space-x-4">
                 <a
                   href={tutor.twitter}
                   className="text-text hover:text-gray-700"
