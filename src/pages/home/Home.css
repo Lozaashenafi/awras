@@ -25,6 +25,10 @@
   top: 1.5rem;
   left: 1.5rem;
 }
+.customTopLeftUperAbout {
+  top: 12.5rem;
+  left: 14.5rem;
+}
 .customTopRightUpper {
   top: 12.5rem;
   left: -14rem;

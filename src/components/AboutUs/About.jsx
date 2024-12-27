@@ -28,11 +28,11 @@ function About() {
 
         {/* Right Content */}
         <div className="lg:w-1/2 ">
-          <div className="bg-gray-100 rounded-lg overflow-hidden w-2/3 mx-auto relative">
+          <div className=" bg-lightBlue rounded-lg overflow-hidden w-2/3 mx-auto relative">
             <img
               src={about1}
               alt="Video call"
-              className="w-64 h-full object-cover ml-auto "
+              className="w-64 h-full object-cover ml-auto mb-8 "
             />
 
             <img
