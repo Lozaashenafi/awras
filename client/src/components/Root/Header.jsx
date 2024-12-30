@@ -17,7 +17,9 @@ function Header() {
       {/* Header */}
       <nav className="navStick flex items-center justify-between px-6 py-2 w-full bg-white">
         {/* Logo */}
-        <img className="w-16" src={logo} alt="Logo" />
+        <NavLink to={"/"}>
+          <img className="w-16" src={logo} alt="Logo" />
+        </NavLink>
 
         {/* Search Bar */}
         <div className="relative flex-grow max-w-sm hidden md:flex">
@@ -70,16 +72,42 @@ function Header() {
           >
             Contact Us
           </NavLink>
+          <NavLink
+            to="/teachers"
+            className={({ isActive }) =>
+              isActive ? "text-orange" : "text-black"
+            }
+          >
+            Teach on Awras
+          </NavLink>
         </div>
 
         {/* Sign-in Buttons */}
         <div className="hidden lg:flex items-center justify-between gap-2">
-          <button className="text-primaryBlue text-sm font-bold">
+          <NavLink
+            to={"/signin"}
+            className={({ isActive }) =>
+              ` text-sm  px-4 py-2 rounded-md ${
+                isActive
+                  ? "bg-lightBlue text-dark"
+                  : "bg-primaryBlue text-white"
+              }`
+            }
+          >
             Sign in
-          </button>
-          <button className="bg-primaryBlue text-sm text-white px-4 py-2 rounded-md">
+          </NavLink>
+          <NavLink
+            to={"/signup"}
+            className={({ isActive }) =>
+              ` text-sm  px-4 py-2 rounded-md ${
+                isActive
+                  ? "bg-lightBlue text-dark"
+                  : "bg-primaryBlue text-white"
+              }`
+            }
+          >
             Create free account
-          </button>
+          </NavLink>
         </div>
 
         {/* Hamburger Menu Icon */}
@@ -131,12 +159,30 @@ function Header() {
               Contact Us
             </NavLink>
             <div className="flex flex-col items-start gap-2 mt-4">
-              <button className="text-primaryBlue text-sm font-bold w-full text-left">
+              <NavLink
+                to={"/signin"}
+                className={({ isActive }) =>
+                  ` text-sm  px-4 py-2 rounded-md ${
+                    isActive
+                      ? "bg-lightBlue text-dark"
+                      : "bg-primaryBlue text-white"
+                  }`
+                }
+              >
                 Sign in
-              </button>
-              <button className="bg-primaryBlue text-sm text-white px-4 py-2 rounded-md w-full">
+              </NavLink>
+              <NavLink
+                to={"/signin"}
+                className={({ isActive }) =>
+                  ` text-sm  px-4 py-2 rounded-md ${
+                    isActive
+                      ? "bg-lightBlue text-dark"
+                      : "bg-primaryBlue text-white"
+                  }`
+                }
+              >
                 Create free account
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>

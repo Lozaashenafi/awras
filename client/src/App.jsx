@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import RootLayout from "./layout/RootLayout";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/contactUs/ContactUs";
+import SignUp from "./pages/auth/SignUp";
 import ScrollToTop from "./components/util/ScrollToTop";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="signup" element={<SignUp />} />
         </Route>
       </Routes>
     </>
