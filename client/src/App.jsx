@@ -6,7 +6,9 @@ import RootLayout from "./layout/RootLayout";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/contactUs/ContactUs";
 import SignUp from "./pages/auth/SignUp";
+import Teachers from "./pages/teachers/Teachers";
 import ScrollToTop from "./components/util/ScrollToTop";
+import TeachersLayout from "./layout/TeachersLayout";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="signup" element={<SignUp />} />
+        </Route>
+        <Route path="/teachers" element={<TeachersLayout />}>
+          <Route index element={<Teachers />} />
         </Route>
       </Routes>
     </>
