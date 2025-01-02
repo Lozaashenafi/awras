@@ -1,0 +1,27 @@
+{
+  "home": "ቤት",
+  "aboutUs": "ስለ እኛ",
+  "courses": "ኮርሶች",
+  "contactUs": "እኛን ያግኙ",
+  "teachOnAwras": "አውራስ ላይ አስተምር",
+  "searchPlaceholder": "ማንኛውንም ማግኘት ትፈልጋለህ?",
+  "createAccount": "ነፃ መለያ ፍጠር",
+  "explore": "አስስ",
+  "hero": {
+    "title1": "በኢትዮጵያ ",
+    "title2": "እውቀት ",
+    "title3": "እና ",
+    "title4": "ችሎታ ",
+    "title5": "ማስበረታት ",
+    "title6": "",
+    "subtitle": {
+      "publicSpeaking": "የህዝብ ንግግር",
+      "careerOriented": "በስራ ተዋዋይ",
+      "creativeThinking": "ፈጠራ ያለበት ሐሳብ"
+    }
+  },
+  "service": {
+    "title": "Our "
+  },
+  "aboutPage": "እንኳን ወደ ስለ እኛ ገፅ በደህና መጡ..."
+}

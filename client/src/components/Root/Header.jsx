@@ -1,31 +1,34 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/icons/awras.png";
 import search from "../../assets/icons/search.png";
 import menuIcon from "../../assets/icons/menu.png";
 import closeIcon from "../../assets/icons/cross.png";
 
 function Header() {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleLanguageChange = (event) => {
+    i18n.changeLanguage(event.target.value); // Change language
+  };
+
   return (
     <>
-      {/* Header */}
       <nav className="navStick flex items-center justify-between px-6 py-2 w-full bg-white">
-        {/* Logo */}
         <NavLink to={"/"}>
           <img className="w-16" src={logo} alt="Logo" />
         </NavLink>
 
-        {/* Search Bar */}
         <div className="relative flex-grow max-w-sm hidden md:flex">
           <input
             type="text"
-            placeholder="Want to learn?"
+            placeholder={t("searchPlaceholder")} // Translated placeholder
             className="w-full border rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none"
           />
           <img
@@ -34,11 +37,10 @@ function Header() {
             className="absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 opacity-35"
           />
           <button className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-lightBlue text-black px-4 mr-1 text-sm font-semibold py-1 rounded-md">
-            Explore
+            {t("explore")}
           </button>
         </div>
 
-        {/* Links and Buttons */}
         <div className="hidden lg:flex space-x-4 text-sm font-semibold">
           <NavLink
             to="/"
@@ -46,7 +48,7 @@ function Header() {
               isActive ? "text-orange" : "text-black"
             }
           >
-            Home
+            {t("home")}
           </NavLink>
           <NavLink
             to="/about"
@@ -54,7 +56,7 @@ function Header() {
               isActive ? "text-orange" : "text-black"
             }
           >
-            About Us
+            {t("aboutUs")}
           </NavLink>
           <NavLink
             to="/courses"
@@ -62,7 +64,7 @@ function Header() {
               isActive ? "text-orange" : "text-black"
             }
           >
-            Courses
+            {t("courses")}
           </NavLink>
           <NavLink
             to="/contact"
@@ -70,7 +72,7 @@ function Header() {
               isActive ? "text-orange" : "text-black"
             }
           >
-            Contact Us
+            {t("contactUs")}
           </NavLink>
           <NavLink
             to="/teachers"
@@ -78,39 +80,32 @@ function Header() {
               isActive ? "text-orange" : "text-black"
             }
           >
-            Teach on Awras
+            {t("teachOnAwras")}
           </NavLink>
         </div>
 
-        {/* Sign-in Buttons */}
-        <div className="hidden lg:flex items-center justify-between gap-2">
-          <NavLink
-            to={"/signin"}
-            className={({ isActive }) =>
-              ` text-sm  px-4 py-2 rounded-md ${
-                isActive
-                  ? "bg-lightBlue text-dark"
-                  : "bg-primaryBlue text-white"
-              }`
-            }
-          >
-            Sign in
-          </NavLink>
+        <div className="hidden lg:flex items-center justify-between gap-4">
           <NavLink
             to={"/signup"}
             className={({ isActive }) =>
-              ` text-sm  px-4 py-2 rounded-md ${
+              ` text-sm px-4 py-2 rounded-md ${
                 isActive
                   ? "bg-lightBlue text-dark"
                   : "bg-primaryBlue text-white"
               }`
             }
           >
-            Create free account
+            {t("createAccount")}
           </NavLink>
+          <select
+            onChange={handleLanguageChange}
+            className="border rounded-md py-1 text-sm focus:outline-none"
+          >
+            <option value="en">English</option>
+            <option value="am">አማርኛ</option>
+          </select>
         </div>
 
-        {/* Hamburger Menu Icon */}
         <div className="lg:hidden flex items-center">
           <button onClick={toggleMenu} className="focus:outline-none">
             <img
@@ -121,72 +116,6 @@ function Header() {
           </button>
         </div>
       </nav>
-
-      {/* Dropdown Menu for Small Screens */}
-      {isMenuOpen && (
-        <div className="absolute top-8 right-0 mt-16 w-56 bg-white shadow-lg z-10 rounded-lg">
-          <div className="flex flex-col items-start py-4 px-4 text-sm font-semibold">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? "text-primaryBlue py-1" : "text-black py-1"
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? "text-primaryBlue py-1" : "text-black py-1"
-              }
-            >
-              About Us
-            </NavLink>
-            <NavLink
-              to="/courses"
-              className={({ isActive }) =>
-                isActive ? "text-primaryBlue py-1" : "text-black py-1"
-              }
-            >
-              Courses
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive ? "text-primaryBlue py-1" : "text-black py-1"
-              }
-            >
-              Contact Us
-            </NavLink>
-            <div className="flex flex-col items-start gap-2 mt-4">
-              <NavLink
-                to={"/signin"}
-                className={({ isActive }) =>
-                  ` text-sm  px-4 py-2 rounded-md ${
-                    isActive
-                      ? "bg-lightBlue text-dark"
-                      : "bg-primaryBlue text-white"
-                  }`
-                }
-              >
-                Sign in
-              </NavLink>
-              <NavLink
-                to={"/signin"}
-                className={({ isActive }) =>
-                  ` text-sm  px-4 py-2 rounded-md ${
-                    isActive
-                      ? "bg-lightBlue text-dark"
-                      : "bg-primaryBlue text-white"
-                  }`
-                }
-              >
-                Create free account
-              </NavLink>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

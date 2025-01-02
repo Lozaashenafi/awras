@@ -1,10 +1,13 @@
 import React from "react";
 import hero from "../../assets/images/hero.png";
+import { useTranslation } from "react-i18next";
 
 function Hero() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <div className="container mx-auto block mt-20   items-center justify-around px-6 py-12 relative initial md:flex ">
+      <div className="container mx-auto block mt-20 items-center justify-around px-6 py-12 relative initial md:flex ">
         <div className="w-2"></div>
         <div className="max-w-xl">
           <div className="absolute opacity-25 w-72 h-72 border border-primaryBlue rounded-full customTopLeftUper left-6">
@@ -15,9 +18,12 @@ function Hero() {
             </div>
           </div>
           <h1 className="text-5xl font-bold fontFam text-primaryBlue">
-            Empowering <span className="text-orange">Ethiopia</span> <br />
-            Through <span className="text-orange">Knowledge</span> <br />
-            And <span className="text-orange">Skill</span>.
+            {t("hero.title1")}
+            <span className="text-orange">{t("hero.title2")}</span> <br />
+            {t("hero.title3")}{" "}
+            <span className="text-orange">{t("hero.title4")}</span> <br />
+            {t("hero.title5")}
+            <span className="text-orange"> {t("hero.title6")}</span>
           </h1>
         </div>
         <div className="relative ">
@@ -50,15 +56,15 @@ function Hero() {
       <div className="container flex ml-72 justify-start space-x-8 py-8">
         <div className="flex items-center space-x-2">
           <span className="text-orange-400">🗣️</span>
-          <p className="text-gray-700">Public Speaking</p>
+          <p className="text-gray-700">{t("hero.subtitle.publicSpeaking")}</p>
         </div>
         <div className="flex items-center space-x-2">
           <span className="text-red-400">🎯</span>
-          <p className="text-gray-700">Career-Oriented</p>
+          <p className="text-gray-700">{t("hero.subtitle.careerOriented")}</p>
         </div>
         <div className="flex items-center space-x-2">
           <span className="text-pink-400">🎨</span>
-          <p className="text-gray-700">Creative Thinking</p>
+          <p className="text-gray-700">{t("hero.subtitle.creativeThinking")}</p>
         </div>
       </div>
     </>

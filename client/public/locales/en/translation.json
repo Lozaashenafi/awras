@@ -1,0 +1,27 @@
+{
+  "home": "Home",
+  "aboutUs": "About Us",
+  "courses": "Courses",
+  "contactUs": "Contact Us",
+  "teachOnAwras": "Teach on Awras",
+  "searchPlaceholder": "Want to learn?",
+  "createAccount": "Create free account",
+  "explore": "Explore",
+  "hero": {
+    "title1": "Empowering ",
+    "title2": "Ethiopia ",
+    "title3": "Through ",
+    "title4": "Knowledge ",
+    "title5": "and",
+    "title6": "Skill.",
+    "subtitle": {
+      "publicSpeaking": "Public Speaking",
+      "careerOriented": "Career-Oriented",
+      "creativeThinking": "Creative Thinking"
+    }
+  },
+  "service": {
+    "title": "Our Services"
+  },
+  "aboutPage": "Welcome to the About Us page..."
+}

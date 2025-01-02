@@ -3,15 +3,19 @@ import ServiceCard from "./ServiceCard";
 import icon1 from "../../assets/icons/icon.png";
 import icon2 from "../../assets/icons/icon2.png";
 import icon3 from "../../assets/icons/icon3.png";
+import { useTranslation } from "react-i18next";
 
 function OurService() {
+  const { t } = useTranslation();
   return (
     <section className="section-container bg-white">
       {/* Title Section */}
       <div className="text-center mb-10">
-        <p className="text-orange text-base font-semibold">Our Services</p>
+        <p className="text-orange text-base font-semibold">
+          {t("service.title")}
+        </p>
         <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-6 mt-8">
-          Fostering a playful & engaging learning{" "}
+          Fostering a playful & engaging learning
           <br className="hidden md:block" /> environment
         </h2>
         <button className="px-6 py-3 text-white bg-primaryBlue rounded-lg hover:bg-primaryBlue transition duration-300">
