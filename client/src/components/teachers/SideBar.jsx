@@ -3,7 +3,7 @@ import logo from "../../assets/images/awrasWhite.png";
 
 function SideBar() {
   return (
-    <div className="w-[20%] bg-blue-900 text-white  flex flex-col px-4 gap-2 py-6">
+    <div className=" w-[20%] bg-blue-900 text-white flex flex-col px-4 gap-2 h-screen py-6">
       <div className="text-center mb-10">
         <img src={logo} alt="Logo" className="h-20 mx-auto" />
       </div>

@@ -1,8 +1,9 @@
 import React from "react";
 import CourseCard from "../../components/teachers/CourseCard";
+import image from "../../assets/images/course.png";
 const courses = [
   {
-    image: "https://via.placeholder.com/150",
+    image: image,
     category: "Design",
     price: "ETB 700.84",
     title: "Figma UI UX Design",
@@ -10,7 +11,7 @@ const courses = [
     reviews: "16,325",
   },
   {
-    image: "https://via.placeholder.com/150",
+    image: image,
     category: "Development",
     price: "ETB 800.50",
     title: "React Development",
@@ -21,8 +22,8 @@ const courses = [
 
 function Teachers() {
   return (
-    <>
-      <div className="grid grid-cols-4 gap-11">
+    <div className="h-full ">
+      <div className="grid grid-cols-4 gap-11 ">
         {courses.map((course, index) => (
           <CourseCard key={index} course={course} />
         ))}
@@ -33,7 +34,7 @@ function Teachers() {
         <i className="fas fa-plus"></i>
         <span>Add Course</span>
       </button>
-    </>
+    </div>
   );
 }
 
