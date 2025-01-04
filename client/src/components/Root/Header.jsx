@@ -15,20 +15,20 @@ function Header() {
   };
 
   const handleLanguageChange = (event) => {
-    i18n.changeLanguage(event.target.value); // Change language
+    i18n.changeLanguage(event.target.value);
   };
 
   return (
     <>
-      <nav className="navStick flex items-center justify-between px-6 py-2 w-full bg-white">
+      <nav className="navStick flex items-center justify-between px-6 py-1  w-full bg-white fixed top-0 z-50 md:py-2">
         <NavLink to={"/"}>
-          <img className="w-16" src={logo} alt="Logo" />
+          <img className="w-14 md:w-16" src={logo} alt="Logo" />
         </NavLink>
 
         <div className="relative flex-grow max-w-sm hidden md:flex">
           <input
             type="text"
-            placeholder={t("searchPlaceholder")} // Translated placeholder
+            placeholder={t("searchPlaceholder")}
             className="w-full border rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none"
           />
           <img
@@ -116,6 +116,51 @@ function Header() {
           </button>
         </div>
       </nav>
+
+      {isMenuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center p-6 lg:hidden overflow-y-auto shadow-md">
+          <button
+            onClick={toggleMenu}
+            className="self-end focus:outline-none mb-4"
+          >
+            <img src={closeIcon} alt="Close Menu" className="w-6 h-6" />
+          </button>
+          <NavLink to="/" className="text-black py-2" onClick={toggleMenu}>
+            {t("home")}
+          </NavLink>
+          <NavLink to="/about" className="text-black py-2" onClick={toggleMenu}>
+            {t("aboutUs")}
+          </NavLink>
+          <NavLink
+            to="/courses"
+            className="text-black py-2"
+            onClick={toggleMenu}
+          >
+            {t("courses")}
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="text-black py-2"
+            onClick={toggleMenu}
+          >
+            {t("contactUs")}
+          </NavLink>
+          <NavLink
+            to="/teachers"
+            className="text-black py-2"
+            onClick={toggleMenu}
+          >
+            {t("teachOnAwras")}
+          </NavLink>
+          <NavLink
+            to="/signup"
+            className="bg-primaryBlue text-white py-2 px-4 rounded-md mt-4"
+            onClick={toggleMenu}
+          >
+            {t("createAccount")}
+          </NavLink>
+        </div>
+      )}
     </>
   );
 }

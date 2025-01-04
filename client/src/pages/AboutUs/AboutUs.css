@@ -1,3 +1,9 @@
 .lineSpace {
   line-height: 1.5;
 }
+/* Styles for mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .lineSpace {
+    line-height: 1.2;
+  }
+}

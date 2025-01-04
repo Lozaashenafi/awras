@@ -6,8 +6,9 @@ const Benefits = () => {
       <div className="container mx-auto px-6 text-center">
         {/* Header Section */}
         <h3 className="text-orange font-semibold text-lg">Our Benefits</h3>
-        <h2 className="text-3xl font-bold text-dark mt-2">
-          By Joining Awras Platform, One <br /> Can Avail a Lot Of Benefits.
+        <h2 className="text-2xl md:text-3xl font-bold text-dark mt-2 lineSpace">
+          By Joining Awras Platform, One <br className="hidden md:block" /> Can
+          Avail a Lot Of Benefits.
         </h2>
 
         {/* Benefits Grid */}
@@ -27,9 +28,13 @@ const Benefits = () => {
               </div>
 
               {/* Title */}
-              <h4 className="font-bold text-xl text-dark">{benefit.title}</h4>
+              <h4 className="font-bold text-base md:text-xl text-dark">
+                {benefit.title}
+              </h4>
               {/* Description */}
-              <p className="text-text mt-2">{benefit.description}</p>
+              <p className="text-text text-sm md:text-base mt-2">
+                {benefit.description}
+              </p>
             </div>
           ))}
         </div>

@@ -45,3 +45,11 @@
 .leftAlign {
   text-align: left; /* Align text to the left */
 }
+/* Styles for mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .fontFam {
+    font-family: "Inter", serif;
+    line-height: 24px;
+    font-size: 22px;
+  }
+}

@@ -7,7 +7,7 @@ const Features = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Content */}
         <div className="lg:w-1/2 relative">
-          <div className="bg-gray-100 w-3/4  rounded-lg shadow-lg p-4">
+          <div className="bg-gray-100 w-3/4  rounded-lg shadow-lg p-4 mx-auto">
             <img
               src={image}
               alt="Features Visual"
@@ -25,18 +25,18 @@ const Features = () => {
         {/* Right Content */}
         <div className="lg:w-1/2 text-center lg:text-left">
           <h3 className="text-orange font-semibold text-lg">Features</h3>
-          <h2 className="text-3xl font-bold text-dark mt-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-dark mt-2 lineSpace">
             We are always working to provide you best of the features in all
             aspects.
           </h2>
-          <p className="text-text mt-4">
+          <p className="text-text mt-4 text-sm md:text-base">
             At Awras, our primary mission is to help students clarify their
             goals, maintain consistency in their ambitions, and build the
             confidence needed for their educational journey. We strive to
             empower students to stay focused and motivated as they work towards
             achieving their long-term objectives.
           </p>
-          <p className="text-text mt-4">
+          <p className="text-text mt-4 text-sm md:text-base">
             While the internet offers vast information with just a click, we
             believe that without the right knowledge and practice, it can fail
             to guide you toward success. At Awras, we emphasize the importance

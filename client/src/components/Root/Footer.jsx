@@ -17,7 +17,7 @@ function Footer() {
           </div>
 
           {/* Product Links */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold text-base">Product</h4>
             <ul className="mt-4 space-y-2 text-sm text-gray-200">
               <li>
@@ -49,7 +49,7 @@ function Footer() {
           </div>
 
           {/* Company Links */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold text-base">Company</h4>
             <ul className="mt-4 space-y-2 text-sm text-gray-200">
               <li>
@@ -77,7 +77,7 @@ function Footer() {
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold text-base">Social</h4>
             <ul className="mt-4 space-y-2 text-sm text-gray-200">
               <li>
@@ -104,7 +104,7 @@ function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold text-base">Legal</h4>
             <ul className="mt-4 space-y-2 text-sm text-gray-200">
               <li>

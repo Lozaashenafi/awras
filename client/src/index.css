@@ -16,6 +16,6 @@ body {
 }
 @layer utilities {
   .section-container {
-    @apply py-16 px-4 sm:py-12 sm:px-6 md:py-14 md:px-8 lg:py-16 lg:px-12 xl:py-20 xl:px-20  mx-auto;
+    @apply py-5 px-5 sm:py-12 sm:px-6 md:py-14 md:px-8 lg:py-16 lg:px-12 xl:py-20 xl:px-20  mx-auto;
   }
 }

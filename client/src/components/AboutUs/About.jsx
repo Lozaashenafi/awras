@@ -8,12 +8,14 @@ function About() {
       <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8">
         {/* Left Content */}
         <div className="lg:w-1/2 text-center lg:text-left">
-          <h2 className="text-3xl font-bold text-primaryBlue mb-4">About Us</h2>
-          <h3 className="text-4xl  font-bold text-primaryBlue lineSpace">
+          <h2 className=" text-1xl md:text-3xl font-bold text-primaryBlue mb-4">
+            About Us
+          </h2>
+          <h3 className="text-2xl md:text-4xl  font-bold text-primaryBlue lineSpace">
             <span className="text-orange">Awras </span>
             Unlocking Opportunities And Gateway To Quality Learning
           </h3>
-          <p className="text-gray-600 mt-4">
+          <p className="text-text mt-4 text-sm md:text-base">
             Awras is your gateway to practical e-learning that opens doors to
             new opportunities. Launched in 2024, Awras offers high-quality
             courses designed to boost your skills and prepare you for a
@@ -28,7 +30,7 @@ function About() {
 
         {/* Right Content */}
         <div className="lg:w-1/2 ">
-          <div className=" bg-lightBlue rounded-lg overflow-hidden w-2/3 mx-auto relative">
+          <div className=" bg-lightBlue rounded-lg overflow-hidden w-5/6 md:w-2/3 mx-auto relative">
             <img
               src={about1}
               alt="Video call"
