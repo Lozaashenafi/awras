@@ -4,5 +4,6 @@ import errorHandler from "../../middleware/error.js";
 const userRouter = Router();
 
 userRouter.post('/register',errorHandler(userController.register));
+userRouter.post('/login',errorHandler(userController.login));
 
 export default userRouter;
