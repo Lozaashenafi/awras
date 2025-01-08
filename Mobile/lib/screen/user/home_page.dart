@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             Image.asset(
               "assets/images/awras.png", // Your logo asset
-              height: 40,
+              height: 50,
             ),
           ],
         ),
@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
                 itemCount: 6, // Number of courses
                 itemBuilder: (context, index) {
                   return CourseBox(
-                    imageUrl: 'assets/course_image.png',
+                    imageUrl: 'assets/images/class $index.png',
                     title: 'Course Title $index',
                     description: 'This is a short description of the course.',
                     price: 99.99,

@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo
-              SvgPicture.asset(
+              Image.asset(
                 'assets/images/awrasWhite.png', // Replace with your logo's path
                 height: 150, // Adjust size as needed
               ),
