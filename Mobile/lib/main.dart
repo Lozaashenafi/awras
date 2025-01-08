@@ -1,5 +1,7 @@
 import 'package:awrasapp/screen/root/signin.dart';
 import 'package:awrasapp/screen/root/signup.dart';
+import 'package:awrasapp/screen/root/splash_screen.dart';
+import 'package:awrasapp/screen/user/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SignInScreen(),
+        body: HomePage(),
       ),
     );
   }
