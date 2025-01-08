@@ -1,3 +1,4 @@
+import 'package:awrasapp/widget/button.dart';
 import 'package:awrasapp/widget/course_box.dart';
 import 'package:flutter/material.dart';
 
@@ -46,16 +47,37 @@ class HomePage extends StatelessWidget {
           children: [
             // Greeting Box
             Container(
+              width: 300,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.lightBlue.shade100,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Text(
-                'Hello, Username! Welcome back!',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Hello, Username!',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                      height: 8), // Add some spacing between the texts
+                  const Text(
+                    'find your lesson today.',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 151, 151, 151)),
+                    // Grey-colored text
+                  ),
+                  const SizedBox(height: 8),
+                  CustomButton(
+                    text: "explore courses",
+                    onPressed: () {},
+                  ),
+                ],
               ),
             ),
+
             const SizedBox(height: 20),
 
             // Search Bar
@@ -68,18 +90,16 @@ class HomePage extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {},
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle explore action
-                  },
-                  child: const Text('Explore'),
-                ),
               ],
             ),
+
             const SizedBox(height: 20),
 
             // Popular Courses Heading
@@ -111,11 +131,14 @@ class HomePage extends StatelessWidget {
             // Course Grid
             Expanded(
               child: GridView.builder(
+                scrollDirection:
+                    Axis.horizontal, // Set scroll direction to horizontal
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                  crossAxisCount: 1, // Only one row for horizontal sliding
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 0.8,
+                  childAspectRatio:
+                      1.5, // Adjust aspect ratio for better visuals
                 ),
                 itemCount: 6, // Number of courses
                 itemBuilder: (context, index) {

@@ -1,4 +1,5 @@
 import 'package:awrasapp/screen/root/signup.dart';
+import 'package:awrasapp/screen/user/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:awrasapp/widget/button.dart';
@@ -113,7 +114,14 @@ class SignInScreen extends StatelessWidget {
                 CustomButton(
                   text: "Sign In",
                   onPressed: () {
-                    // Handle sign-in logic
+                    // Navigate to the home screen
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage(), // Replace with your actual home screen
+                      ),
+                    );
                   },
                 ),
 
