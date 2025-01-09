@@ -35,12 +35,25 @@ const userController = {
      username:data.email
       
     },
+  
   });
+
+  const usersRole = await prisma.userRole.create({
+    data: {
+
+      roleId:3,
+      userId:newUser.id
+      
+    },
+  
+  });
+
+
 
   return res.status(200).json({
     success: true,
     message: "User created successfully",
-    data: newUser,
+    data: newUser,usersRole
   });
 },
   
@@ -87,5 +100,15 @@ login: async (req: Request, res: Response, next: NextFunction) => {
       token: token,
     });
   },
+  getAll:async(req: Request,res: Response,next: NextFunction)=>{
+
+    try {
+        const users= await prisma.user.findMany()
+        res.status(200).json({ success: true,
+          message: "all Users",users});
+      } catch (error) {
+        throw(error);
+      }
+    },
 };
 export default userController;

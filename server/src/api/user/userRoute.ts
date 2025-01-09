@@ -5,5 +5,5 @@ const userRouter = Router();
 
 userRouter.post('/register',errorHandler(userController.register));
 userRouter.post('/login',errorHandler(userController.login));
-
+userRouter.get('/getAll',errorHandler(userController.getAll));
 export default userRouter;
