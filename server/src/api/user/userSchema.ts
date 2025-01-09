@@ -8,6 +8,9 @@ const userSchema = {
     lastName: z.string().min(1),
   }),
     
-
+  login: z.object({
+    password: z.string().min(6),
+    email: z.string().email(),
+  }),
 }
   export default userSchema;
