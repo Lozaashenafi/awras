@@ -1,11 +1,11 @@
 import React from "react";
 import search from "../../assets/icons/search.png";
-
 import { NavLink } from "react-router-dom";
 
 function SearchBar() {
   return (
-    <div className="flex justify-between items-center mb-6  px-4 py-3">
+    <div className="flex justify-end md:justify-between items-center mb-6 px-4 py-3 absolute top-3 right-0 md:static">
+      {/* Search Bar (visible only on desktop) */}
       <div className="relative flex-grow max-w-sm hidden md:flex">
         <input
           type="text"
@@ -21,6 +21,8 @@ function SearchBar() {
           Explore
         </button>
       </div>
+
+      {/* Navigation Links */}
       <div className="flex space-x-4 text-sm">
         <NavLink
           to="/teachers"

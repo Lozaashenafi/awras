@@ -10,7 +10,7 @@ function TeachersLayout() {
         {/* Sidebar */}
         <SideBar />
         {/* Main Content */}
-        <div className="w-[80%] px-8 py-6">
+        <div className=" w-[100%] md:w-[80%] px-8 py-6">
           <SearchBar />
           <Outlet />
         </div>

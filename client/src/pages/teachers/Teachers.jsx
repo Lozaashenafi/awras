@@ -1,6 +1,7 @@
 import React from "react";
 import CourseCard from "../../components/teachers/CourseCard";
 import image from "../../assets/images/course.png";
+
 const courses = [
   {
     image: image,
@@ -22,15 +23,16 @@ const courses = [
 
 function Teachers() {
   return (
-    <div className="h-full ">
-      <div className="grid grid-cols-4 gap-11 ">
+    <div className="h-full px-4 py-6">
+      {/* Courses Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {courses.map((course, index) => (
           <CourseCard key={index} course={course} />
         ))}
       </div>
 
       {/* Add Course Button */}
-      <button className="fixed bottom-6 right-6 bg-blue-900 text-white rounded-full px-6 py-3 shadow-lg flex items-center space-x-2">
+      <button className="fixed bottom-6 right-6 bg-blue-900 text-white rounded-full px-6 py-3 shadow-lg flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
         <i className="fas fa-plus"></i>
         <span>Add Course</span>
       </button>
