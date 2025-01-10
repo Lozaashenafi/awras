@@ -1,6 +1,5 @@
 import { Router } from "express";
 import categoryController from "./categoryController";
-import { isAdmin, isAuthUser } from "../../middleware/auth";
 import  errorHandler  from "../../middleware/error.js";
 
 const categoryRouter = Router();

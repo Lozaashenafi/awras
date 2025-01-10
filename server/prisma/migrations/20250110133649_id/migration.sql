@@ -16,21 +16,25 @@ CREATE TABLE `User` (
 
 -- CreateTable
 CREATE TABLE `Profile` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `userid` INTEGER NOT NULL,
     `imageUrl` VARCHAR(255) NULL,
     `tgLink` VARCHAR(255) NULL,
     `linkedinLink` VARCHAR(255) NULL,
     `phoneNumber` VARCHAR(15) NULL,
 
-    PRIMARY KEY (`userid`)
+    UNIQUE INDEX `Profile_userid_key`(`userid`),
+    PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
 CREATE TABLE `Instructor` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `profileid` INTEGER NOT NULL,
     `bio` TEXT NULL,
 
-    PRIMARY KEY (`profileid`)
+    UNIQUE INDEX `Instructor_profileid_key`(`profileid`),
+    PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
