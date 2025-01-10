@@ -16,7 +16,6 @@ model User {
   email       String    @unique @db.VarChar(100)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-
   profile     Profile?
   userRoles   UserRole[]
   notifications Notification[]
@@ -28,22 +27,23 @@ model User {
 }
 
 model Profile {
-  userId       Int       @id @map("userid")
+  id        Int      @id @default(autoincrement()) 
+  userId       Int       @unique @map("userid")
   imageUrl     String?   @db.VarChar(255)
   tgLink       String?   @db.VarChar(255)
   linkedinLink String?   @db.VarChar(255)
   phoneNumber  String?   @db.VarChar(15)
-
   user         User      @relation(fields: [userId], references: [id])
   instructor   Instructor?
 }
 
 model Instructor {
-  profileId Int      @id @map("profileid")
-  bio       String?  @db.Text
+  id        Int      @id @default(autoincrement()) 
+  profileId Int      @unique @map("profileid")  
+  bio       String?  @db.Text                   
 
-  profile   Profile  @relation(fields: [profileId], references: [userId])
-  courses   Course[]
+  profile   Profile  @relation(fields: [profileId], references: [userId]) 
+  courses   Course[] 
 }
 
 model Course {
@@ -124,7 +124,6 @@ model Notification {
   type      String   @db.VarChar(50)
   createdAt DateTime @default(now())
   seen      Boolean  @default(false)
-
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
 }
