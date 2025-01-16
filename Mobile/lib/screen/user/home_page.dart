@@ -1,6 +1,8 @@
+import 'package:awrasapp/widget/bottom_nav_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:awrasapp/widget/bottom_nav_bar.dart';
 import 'package:awrasapp/widget/button.dart';
 import 'package:awrasapp/widget/course_box.dart';
-import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,6 +11,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+
+  void _onNavBarTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+
+    // Handle navigation or content switching here
+    if (index == 0) {
+      // Navigate to home content
+    } else if (index == 1) {
+      // Navigate to profile content
+    } else if (index == 2) {
+      // Navigate to courses content
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,38 +178,15 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: 0, // 0 for the Home tab
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-
-          // Handle navigation based on selected index
-          if (_currentIndex == 0) {
-            // Navigate to home
-          } else if (_currentIndex == 1) {
-            // Navigate to profile
-          } else if (_currentIndex == 2) {
-            // Navigate to courses
+          if (index == 0) {
+            Navigator.pushReplacementNamed(context, '/home'); // Home
+          } else if (index == 1) {
+            Navigator.pushReplacementNamed(context, '/courses'); // Courses
           }
         },
-        selectedItemColor: const Color.fromARGB(255, 18, 89, 148),
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book),
-            label: 'Courses',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
       ),
     );
   }
