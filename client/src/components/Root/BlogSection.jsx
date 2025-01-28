@@ -7,29 +7,29 @@ import DetailBlog from "./DetailBlog";
 
 const blogs = [
   {
-    date: "November 16, 2014",
-    title: "Three Pillars of User Delight",
+    date: "January 2, 2025",
+    title: "Awras’ Approach to Peer Coaching",
     description:
-      "Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...",
-    tags: ["Research", "UI UX"],
+      "At Awras, we recognize the importance of peer coaching in the online learning experience. Rather than depending only on instructors ...",
+    tags: ["Research", "communication"],
     image: blog1,
   },
   {
-    date: "September 24, 2017",
-    title: "UX Mapping Methods",
+    date: "September 24, 2024",
+    title: "Setting Up Your Ideal Learning Space",
     description:
-      "Visual-design principles can be applied consistently throughout the process of creating a polished UX map...",
-    tags: ["Research", "UI Design"],
+      "Creating the right environment for studying is just as important as the material you're learning. A well-organized and ....",
+    tags: ["Research", "education"],
     image: blog2,
   },
 ];
 const detail = [
   {
-    date: "March 13, 2014",
-    title: "Agile Development Projects and Usability",
+    date: "December 13, 2024",
+    title: "The Power of Innovation in Today's Workplace",
     description:
-      "Agile methods aim to overcome usability barriers in traditional development, but post new threats to user experience quality.",
-    tags: ["Programming", "Research", "Developments"],
+      "Innovation is at the heart of every business breakthrough.it's a mindset that requires creativity, problem-solving, and collaboration....",
+    tags: ["inovation", "Research", "Developments"],
     image: blog3,
   },
 ];

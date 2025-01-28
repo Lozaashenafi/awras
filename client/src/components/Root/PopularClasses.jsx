@@ -15,31 +15,30 @@ const PopularClasses = () => {
       rating: 4.3,
       reviews: "16,325",
       image: image1,
-      instructor: { name: "Jane Cooper", enrolled: 2001 },
+      instructor: { name: "abreham tadesse", enrolled: 2001 },
     },
     {
       id: 2,
-      title: "Learn With Shoaib",
-      description:
-        "Design Web Sites and Mobile Apps that Your Users Love and Return to Again.",
+      title: "Learn Buisness With Helen",
+      description:"practical business consultancy course to help you grow and manage your business effectively.",
       duration: "06 hr 3 mins",
       price: "ETB 800.99",
       rating: 3.9,
       reviews: "832",
       image: image2,
-      instructor: { name: "Jenny Wilson", enrolled: 2001 },
+      instructor: { name: "Helen muluken", enrolled: 2001 },
     },
     {
       id: 3,
-      title: "Building User Interfaces",
+      title: "Interior Design With Abenezer",
       description:
-        "Learn how to apply User Experience (UX) principles to your website designs.",
+        "an interior design course that helps you create beautiful, functional spaces with easy-to-follow lessons.",
       duration: "01 hr 2 mins",
       price: "ETB 1100.70",
       rating: 4.2,
       reviews: "125",
       image: image3,
-      instructor: { name: "Esther Howard", enrolled: 2001 },
+      instructor: { name: "arch. Abenezer Mola", enrolled: 2001 },
     },
   ];
   return (
