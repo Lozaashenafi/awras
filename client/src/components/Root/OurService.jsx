@@ -1,9 +1,10 @@
 import React from "react";
-import ServiceCard from "./ServiceCard";
-import icon1 from "../../assets/icons/icon.png";
-import icon2 from "../../assets/icons/icon2.png";
-import icon3 from "../../assets/icons/icon3.png";
 import { useTranslation } from "react-i18next";
+import ServiceCard from "./ServiceCard";
+import icon1 from "../../assets/icons/Icon.png";
+import icon2 from "../../assets/icons/Icon2.png";
+import icon3 from "../../assets/icons/Icon3.png";
+
 
 function OurService() {
   const { t } = useTranslation();
