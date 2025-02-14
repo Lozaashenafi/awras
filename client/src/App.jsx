@@ -9,6 +9,11 @@ import SignUp from "./pages/auth/SignUp";
 import Teachers from "./pages/teachers/Teachers";
 import ScrollToTop from "./components/util/ScrollToTop";
 import TeachersLayout from "./layout/TeachersLayout";
+import AddCourse from "./pages/addCourse/AddCourse";
+import CourseInfo from "./pages/addCourse/CourseInfo";
+import CourseIntro from "./pages/addCourse/CourseIntro";
+import CourseStructure from "./pages/addCourse/CourseStructure";
+import AddCourseLayout from "./layout/AddCourseLayout";
 
 function App() {
   return (
@@ -23,6 +28,12 @@ function App() {
         </Route>
         <Route path="/teachers" element={<TeachersLayout />}>
           <Route index element={<Teachers />} />
+        </Route>
+        <Route path="/course" element={<AddCourseLayout />}>
+          <Route index element={<AddCourse />} />
+          <Route path="info" element={<CourseInfo />} />
+          <Route path="intro" element={<CourseIntro />} />
+          <Route path="structure" element={<CourseStructure />} />
         </Route>
       </Routes>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import CourseCard from "../../components/teachers/CourseCard";
 import image from "../../assets/images/course.png";
+import { Link } from "react-router-dom";
 
 const courses = [
   {
@@ -34,7 +35,7 @@ function Teachers() {
       {/* Add Course Button */}
       <button className="fixed bottom-6 right-6 bg-blue-900 text-white rounded-full px-6 py-3 shadow-lg flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
         <i className="fas fa-plus"></i>
-        <span>Add Course</span>
+        <Link to={"/course"}>Add Course</Link>
       </button>
     </div>
   );
