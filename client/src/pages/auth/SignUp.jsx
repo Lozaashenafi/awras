@@ -1,7 +1,59 @@
-import React from "react";
+// src/components/SignUp.js
+import React, { useState } from "react";
 import Image from "../../assets/images/signup.png";
+import api from "../../components/util/api";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    try {
+      // Send registration data to the backend
+      const response = await api.post("user/register", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (response.data.success) {
+        toast.success("User registered successfully!");
+        // Redirect to login page or dashboard
+        window.location.href = "/login";
+      }
+    } catch (error) {
+      console.error(
+        "Registration failed:",
+        error.response?.data?.message || error.message
+      );
+      toast.error("Registration failed. Please try again.");
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row justify-center section-container min-h-screen">
       {/* Left Section */}
@@ -43,35 +95,51 @@ const SignUp = () => {
           </div>
           <div className="text-center text-sm text-gray-500 mb-4">- OR -</div>
           {/* Form */}
-          <form className="space-y-3">
+          <form className="space-y-3" onSubmit={handleSubmit}>
             <div className="flex flex-col sm:flex-row gap-3">
               <div className="flex-1">
                 <label className="block text-text text-sm">First Name</label>
                 <input
                   type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                  required
                 />
               </div>
               <div className="flex-1">
                 <label className="block text-text text-sm">Last Name</label>
                 <input
                   type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                  required
                 />
               </div>
             </div>
             <div>
               <label className="block text-text text-sm">Email</label>
               <input
-                type="text"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                required
               />
             </div>
             <div>
               <label className="block text-text text-sm">Password</label>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                required
               />
             </div>
             <div>
@@ -80,7 +148,11 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
                 className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                required
               />
             </div>
 
@@ -101,6 +173,8 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      {/* Toast Container */}
+      <ToastContainer />
     </div>
   );
 };

@@ -14,17 +14,33 @@ import CourseInfo from "./pages/addCourse/CourseInfo";
 import CourseIntro from "./pages/addCourse/CourseIntro";
 import CourseStructure from "./pages/addCourse/CourseStructure";
 import AddCourseLayout from "./layout/AddCourseLayout";
+import Login from "./pages/auth/Login";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
       <ScrollToTop />
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="/teachers" element={<TeachersLayout />}>
           <Route index element={<Teachers />} />
