@@ -22,7 +22,7 @@ const SignUp = () => {
     });
   };
 
-  const googleAuthUrl = process.env.REACT_APP_GOOGLE_AUTH_URL;
+  const googleAuthUrl = import.meta.env.VITE_API_GOOGLE_AUTH_URL;
 
   const handleGoogleSignIn = () => {
     window.location.href = googleAuthUrl;
@@ -81,7 +81,7 @@ const SignUp = () => {
 
           {/* Social Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
-          <button
+            <button
               onClick={handleGoogleSignIn}
               className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2"
             >
