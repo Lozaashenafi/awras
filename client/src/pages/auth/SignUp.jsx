@@ -22,10 +22,15 @@ const SignUp = () => {
     });
   };
 
+  const googleAuthUrl = process.env.REACT_APP_GOOGLE_AUTH_URL;
+
+  const handleGoogleSignIn = () => {
+    window.location.href = googleAuthUrl;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match");
       return;
@@ -76,7 +81,10 @@ const SignUp = () => {
 
           {/* Social Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
-            <button className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2">
+          <button
+              onClick={handleGoogleSignIn}
+              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2"
+            >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
                 alt="Google"
