@@ -1,7 +1,70 @@
-import React from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome
+import React, { useState } from "react";
+import api from "../../components/util/api";
+import { ToastContainer, toast } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    subject: "General Inquiry",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const subjectOptions = [
+    { label: "General Inquiry", value: "General Inquiry" },
+    { label: "Support", value: "Support" },
+    { label: "Feedback", value: "Feedback" },
+  ];
+
+  const handleSubjectSelect = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      subject: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+   
+    e.preventDefault();
+    const { firstName, lastName, email, phoneNumber, subject, message } = formData;
+
+    try {
+      const response = await api.post("contact/sendEmail", {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        subject,
+        message,
+      });
+
+      toast.success("Message sent successfully!"); 
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        subject: "General Inquiry",
+        message: "",
+      }); 
+    
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Failed to send message."); 
+    }
+  };
+
   return (
     <section className="section-container bg-white py-8 mt-9">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,12 +82,15 @@ const ContactUs = () => {
         <div className="bg-white cardBorder rounded-lg grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* Form - Top on Mobile */}
           <div className="p-6 col-span-1 lg:col-span-3 order-1 lg:order-none">
-            <form className="text-sm">
+            <form className="text-sm" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700">First Name</label>
                   <input
                     type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
                   />
                 </div>
@@ -32,6 +98,9 @@ const ContactUs = () => {
                   <label className="block text-gray-700">Last Name</label>
                   <input
                     type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
                   />
                 </div>
@@ -40,6 +109,9 @@ const ContactUs = () => {
                 <label className="block text-gray-700">Email</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
                 />
               </div>
@@ -47,24 +119,26 @@ const ContactUs = () => {
                 <label className="block text-gray-700">Phone Number</label>
                 <input
                   type="text"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
                   className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
                 />
               </div>
               <div className="mt-4">
-                <label className="block text-gray-700 mb-4">
-                  Select Subject?
-                </label>
+                <label className="block text-gray-700 mb-4">Select Subject</label>
                 <div className="flex flex-wrap items-center space-x-4">
-                  {[...Array(4)].map((_, i) => (
+                  {subjectOptions.map((option, i) => (
                     <label key={i} className="inline-flex items-center mb-2">
                       <input
                         type="radio"
                         name="subject"
+                        value={option.value}
+                        checked={formData.subject === option.value}
+                        onChange={handleSubjectSelect}
                         className="text-blue-500 focus:ring focus:ring-blue-200"
                       />
-                      <span className="ml-2 text-gray-700">
-                        General Inquiry
-                      </span>
+                      <span className="ml-2 text-gray-700">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -72,6 +146,9 @@ const ContactUs = () => {
               <div className="mt-6">
                 <label className="block text-gray-700">Message</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 h-24"
                   placeholder="Write your message..."
                 ></textarea>
@@ -122,6 +199,9 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <ToastContainer />
     </section>
   );
 };
