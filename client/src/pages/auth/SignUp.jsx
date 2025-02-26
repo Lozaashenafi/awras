@@ -25,7 +25,8 @@ const SignUp = () => {
   const googleAuthUrl = import.meta.env.VITE_API_GOOGLE_AUTH_URL;
 
   const handleGoogleSignIn = () => {
-    window.location.href = googleAuthUrl;
+    window.location.href = `${googleAuthUrl}/auth/google`;
+    
   };
 
   const handleSubmit = async (e) => {
