@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "../../assets/images/hero.png";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 function Hero() {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ function Hero() {
               </div>
             </div>
           </div>
-          <h1 className="text-5xl font-bold fontFam text-primaryBlue">
+          <h1 className="text-5xl font-bold fontFam text-primaryBlue mb-10">
             {t("hero.title1")}
             <span className="text-orange">{t("hero.title2")}</span> <br />
             {t("hero.title3")}{" "}
@@ -25,6 +26,12 @@ function Hero() {
             {t("hero.title5")}
             <span className="text-orange"> {t("hero.title6")}</span>
           </h1>
+          <NavLink
+            to="/signup"
+            className="bg-primaryBlue text-white py-2 px-4 rounded-md  "
+          >
+            {t("Create free account")}
+          </NavLink>
         </div>
         <div className="relative ">
           <div className="sm:w-80 sm:mx-auto">

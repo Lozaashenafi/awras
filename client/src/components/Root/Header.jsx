@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom"; // Import useLocation
 import { useTranslation } from "react-i18next";
 import logo from "../../assets/icons/awras.png";
 import search from "../../assets/icons/search.png";
@@ -9,6 +9,7 @@ import closeIcon from "../../assets/icons/cross.png";
 function Header() {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation(); // Get current page location
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,26 +21,29 @@ function Header() {
 
   return (
     <>
-      <nav className="navStick flex items-center justify-between px-6 py-1  w-full bg-white fixed top-0 z-50 md:py-2">
+      <nav className="navStick flex items-center justify-between px-6 py-1 w-full bg-white fixed top-0 z-50 md:py-2">
         <NavLink to={"/"}>
           <img className="w-14 md:w-16" src={logo} alt="Logo" />
         </NavLink>
 
-        <div className="relative flex-grow max-w-sm hidden md:flex">
-          <input
-            type="text"
-            placeholder={t("searchPlaceholder")}
-            className="w-full border rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none"
-          />
-          <img
-            src={search}
-            alt="Search"
-            className="absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 opacity-35"
-          />
-          <button className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-lightBlue text-black px-4 mr-1 text-sm font-semibold py-1 rounded-md">
-            {t("explore")}
-          </button>
-        </div>
+        {/* Hide Search bar if the page is "/courses" */}
+        {location.pathname !== "/courses" && (
+          <div className="relative flex-grow max-w-sm hidden md:flex">
+            <input
+              type="text"
+              placeholder={t("searchPlaceholder")}
+              className="w-full border rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none"
+            />
+            <img
+              src={search}
+              alt="Search"
+              className="absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 opacity-35"
+            />
+            <button className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-lightBlue text-black px-4 mr-1 text-sm font-semibold py-1 rounded-md">
+              {t("explore")}
+            </button>
+          </div>
+        )}
 
         <div className="hidden lg:flex space-x-4 text-sm font-semibold">
           <NavLink
@@ -86,7 +90,7 @@ function Header() {
 
         <div className="hidden lg:flex items-center justify-between gap-4">
           <NavLink
-            to={"/signup"}
+            to={"/login"}
             className={({ isActive }) =>
               ` text-sm px-4 py-2 rounded-md ${
                 isActive
@@ -95,7 +99,7 @@ function Header() {
               }`
             }
           >
-            {t("createAccount")}
+            {t("Log In")}
           </NavLink>
           <select
             onChange={handleLanguageChange}
@@ -146,18 +150,18 @@ function Header() {
             {t("contactUs")}
           </NavLink>
           <NavLink
-            to="/teachers"
+            to="/request"
             className="text-black py-2"
             onClick={toggleMenu}
           >
             {t("teachOnAwras")}
           </NavLink>
           <NavLink
-            to="/signup"
+            to="/login"
             className="bg-primaryBlue text-white py-2 px-4 rounded-md mt-4"
             onClick={toggleMenu}
           >
-            {t("createAccount")}
+            {t("Log In")}
           </NavLink>
         </div>
       )}

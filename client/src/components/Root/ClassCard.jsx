@@ -15,7 +15,7 @@ function ClassCard({
   return (
     <div
       key={id}
-      className="bg-white rounded-lg cardBorder overflow-hidden hover:shadow-lg transition-shadow m-4 max-w-xs"
+      className="bg-white rounded-md cardBorder overflow-hidden hover:shadow-lg transition-shadow m-4 max-w-xs"
     >
       <div className="relative w-full p-4">
         <img
@@ -23,9 +23,6 @@ function ClassCard({
           alt={title}
           className="w-full h-52 object-cover rounded-md"
         />
-        {/* <div className="absolute top-5 right-5 bg-white text-text px-3 py-1 rounded-sm text-sm">
-          {duration}
-        </div> */}
       </div>
       <div className="p-4">
         <span className="text-orange font-semibold text-sm">Design</span>
@@ -53,6 +50,12 @@ function ClassCard({
           <p className="text-lg text-primaryBlue font-semibold text-orange-500">
             {price}
           </p>
+        </div>
+        <div className="flex items-center justify-between">
+          <div></div>
+          <button className="bg-primaryBlue text-white py-2 px-4 rounded-md ">
+            Enroll
+          </button>
         </div>
       </div>
     </div>

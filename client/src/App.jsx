@@ -17,6 +17,11 @@ import AddCourseLayout from "./layout/AddCourseLayout";
 import Login from "./pages/auth/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CourseDetail from "./pages/courses/CourseDetail";
+import TeacherRequest from "./pages/teachers/TeacherRequest";
+import CoursePage from "./pages/courses/CoursePage";
+import Dashboard from "./pages/student/Dashboard";
+import StudentsLayout from "./layout/StudentsLayout";
 
 function App() {
   return (
@@ -41,6 +46,7 @@ function App() {
           <Route path="contact" element={<ContactUs />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
+          <Route path="courses" element={<CoursePage />} />
         </Route>
         <Route path="/teachers" element={<TeachersLayout />}>
           <Route index element={<Teachers />} />
@@ -50,6 +56,10 @@ function App() {
           <Route path="info" element={<CourseInfo />} />
           <Route path="intro" element={<CourseIntro />} />
           <Route path="structure" element={<CourseStructure />} />
+        </Route>
+        <Route path="request" element={<TeacherRequest />} />
+        <Route path="/student" element={<StudentsLayout />}>
+          <Route index element={<Dashboard />} />
         </Route>
       </Routes>
     </>
