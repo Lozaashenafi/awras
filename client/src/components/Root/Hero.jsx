@@ -2,9 +2,14 @@ import React from "react";
 import hero from "../../assets/images/hero.png";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import { selectUser } from "../../redux/features/userSlice";
+import { useSelector } from "react-redux";
 
 function Hero() {
   const { t } = useTranslation();
+
+  const user = useSelector(selectUser);
+  console.log(user);
 
   return (
     <>
@@ -19,12 +24,12 @@ function Hero() {
             </div>
           </div>
           <h1 className="text-5xl font-bold fontFam text-primaryBlue mb-10">
-            {t("hero.title1")}
-            <span className="text-orange">{t("hero.title2")}</span> <br />
-            {t("hero.title3")}{" "}
-            <span className="text-orange">{t("hero.title4")}</span> <br />
-            {t("hero.title5")}
-            <span className="text-orange"> {t("hero.title6")}</span>
+            {t("Empowering ")}
+            <span className="text-orange">{t("Ethiopia")}</span> <br />
+            {t(" ")}{" "}
+            <span className="text-orange">{t("Through ")}</span> <br />
+            {t("Knowledge")}
+            <span className="text-orange"> {t("and Skill.")}</span>
           </h1>
           <NavLink
             to="/signup"

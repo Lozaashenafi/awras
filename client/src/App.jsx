@@ -1,5 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
 import Home from "./pages/home/Home";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import RootLayout from "./layout/RootLayout";
@@ -25,44 +28,46 @@ import StudentsLayout from "./layout/StudentsLayout";
 
 function App() {
   return (
-    <>
-      <ScrollToTop />
-      {/* Toast Container */}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<AboutUs />} />
-          <Route path="contact" element={<ContactUs />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="login" element={<Login />} />
-          <Route path="courses" element={<CoursePage />} />
-        </Route>
-        <Route path="/teachers" element={<TeachersLayout />}>
-          <Route index element={<Teachers />} />
-        </Route>
-        <Route path="/course" element={<AddCourseLayout />}>
-          <Route index element={<AddCourse />} />
-          <Route path="info" element={<CourseInfo />} />
-          <Route path="intro" element={<CourseIntro />} />
-          <Route path="structure" element={<CourseStructure />} />
-        </Route>
-        <Route path="request" element={<TeacherRequest />} />
-        <Route path="/student" element={<StudentsLayout />}>
-          <Route index element={<Dashboard />} />
-        </Route>
-      </Routes>
-    </>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ScrollToTop />
+        {/* Toast Container */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/courses" element={<CoursePage />} />
+          </Route>
+          <Route path="/teachers" element={<TeachersLayout />}>
+            <Route index element={<Teachers />} />
+          </Route>
+          <Route path="/course" element={<AddCourseLayout />}>
+            <Route index element={<AddCourse />} />
+            <Route path="info" element={<CourseInfo />} />
+            <Route path="intro" element={<CourseIntro />} />
+            <Route path="structure" element={<CourseStructure />} />
+          </Route>
+          <Route path="/request" element={<TeacherRequest />} />
+          <Route path="/student" element={<StudentsLayout />}>
+            <Route index element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </PersistGate>
+    </Provider>
   );
 }
 

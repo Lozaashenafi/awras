@@ -1,11 +1,16 @@
 // src/components/SignUp.js
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setUser, setLoading, setError } from '../../redux/features/userSlice';
 import Image from "../../assets/images/signup.png";
 import api from "../../components/util/api";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,6 +43,7 @@ const SignUp = () => {
     }
 
     try {
+      dispatch(setLoading(true));
       // Send registration data to the backend
       const response = await api.post("user/register", {
         firstName: formData.firstName,
@@ -45,18 +51,21 @@ const SignUp = () => {
         email: formData.email,
         password: formData.password,
       });
-
+      
       if (response.data.success) {
+        dispatch(setUser(response.data.data));
         toast.success("User registered successfully!");
-        // Redirect to login page or dashboard
-        window.location.href = "/login";
+        navigate('/login');
       }
     } catch (error) {
       console.error(
         "Registration failed:",
         error.response?.data?.message || error.message
       );
+      dispatch(setError(error.response?.data?.message || "Registration failed"));
       toast.error("Registration failed. Please try again.");
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 

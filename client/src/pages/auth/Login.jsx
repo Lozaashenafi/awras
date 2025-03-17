@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import api from "../../components/util/api"; // Import the Axios instance
 import { toast, ToastContainer } from "react-toastify"; // Import toast
 import "react-toastify/dist/ReactToastify.css"; // Import toast styles
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/features/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,11 +31,13 @@ const Login = () => {
       });
 
       if (response.data.success) {
+        console.log(response.data);
         // Save the token to localStorage or sessionStorage
+        dispatch(setUser(response.data.data));
         localStorage.setItem("token", response.data.token);
         toast.success("Login successful!");
         // Redirect to dashboard or home page
-        window.location.href = "/";
+        // window.location.href = "/";
       }
     } catch (error) {
       console.error(
