@@ -25,6 +25,7 @@ import TeacherRequest from "./pages/teachers/TeacherRequest";
 import CoursePage from "./pages/courses/CoursePage";
 import Dashboard from "./pages/student/Dashboard";
 import StudentsLayout from "./layout/StudentsLayout";
+import PublicRoute from "./components/auth/PublicRoute";
 
 function App() {
   return (
@@ -48,12 +49,26 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/courses" element={<CoursePage />} />
-          </Route>
-          <Route path="/teachers" element={<TeachersLayout />}>
-            <Route index element={<Teachers />} />
+            <Route path="/teachers" element={<TeachersLayout />}>
+              <Route index element={<Teachers />} />
+            </Route>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignUp />
+              </PublicRoute>
+            }
+          />
           </Route>
           <Route path="/course" element={<AddCourseLayout />}>
             <Route index element={<AddCourse />} />
@@ -65,6 +80,7 @@ function App() {
           <Route path="/student" element={<StudentsLayout />}>
             <Route index element={<Dashboard />} />
           </Route>
+          {/* Auth Routes */}
         </Routes>
       </PersistGate>
     </Provider>

@@ -16,6 +16,9 @@ function Header() {
   const location = useLocation();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  
+  // Check if we're on auth pages
+  const isAuthPage = ['/login', '/signup'].includes(location.pathname);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -169,6 +172,7 @@ function Header() {
               )}
             </div>
           ) : (
+           !isAuthPage && ( 
             <NavLink
               to="/login"
               className={({ isActive }) =>
@@ -180,7 +184,7 @@ function Header() {
               }
             >
               {t("Log In")}
-            </NavLink>
+            </NavLink>)
           )}
           <select
             onChange={handleLanguageChange}

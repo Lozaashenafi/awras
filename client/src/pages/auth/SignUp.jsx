@@ -1,7 +1,7 @@
 // src/components/SignUp.js
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { setUser, setLoading, setError } from '../../redux/features/userSlice';
 import Image from "../../assets/images/signup.png";
 import api from "../../components/util/api";
@@ -101,22 +101,22 @@ const SignUp = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
             <button
               onClick={handleGoogleSignIn}
-              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors"
+              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors"
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
                 alt="Google"
                 className="h-4"
               />
-              Sign up with Google
+              <p className="line-clamp-1">Sign up with Google</p>
             </button>
-            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors">
+            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
                 alt="Facebook"
                 className="h-4"
               />
-              Sign up with Facebook
+              <p className="line-clamp-1">Sign up with Facebook</p>
             </button>
           </div>
           <div className="text-center text-sm text-gray-500 mb-4">- OR -</div>
@@ -210,9 +210,9 @@ const SignUp = () => {
           {/* Footer */}
           <div className="text-center text-sm text-gray-500 mt-4">
             Already have an account?{" "}
-            <a href="/login" className="text-primaryBlue hover:underline">
+            <Link to="/login" className="text-primaryBlue hover:underline">
               Log in
-            </a>
+            </Link>
           </div>
         </div>
       </div>

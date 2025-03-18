@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css"; // Import toast styles
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/features/userSlice";
 import Image from "../../assets/images/signup.png";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -45,6 +46,7 @@ const Login = () => {
         localStorage.setItem("token", response.data.token);
         toast.success("Login successful!");
         // Redirect to dashboard or home page
+        navigate("/");
       }
     } catch (error) {
       console.error(
@@ -79,22 +81,22 @@ const Login = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
             <button
               onClick={handleGoogleSignIn}
-              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors"
+              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors"
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
                 alt="Google"
                 className="h-4"
               />
-              Sign in with Google
+              <p className="line-clamp-1">Sign in with Google</p>
             </button>
-            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors">
+            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
                 alt="Facebook"
                 className="h-4"
               />
-              Sign in with Facebook
+              <p className="line-clamp-1 ">Sign in with Facebook</p>
             </button>
           </div>
           <div className="text-center text-sm text-gray-500 mb-4">- OR -</div>
@@ -126,9 +128,9 @@ const Login = () => {
               />
             </div>
             <div className="flex justify-end">
-              <a href="/forgot-password" className="text-sm text-primaryBlue hover:underline">
+              <Link to="/forgot-password" className="text-sm text-primaryBlue hover:underline">
                 Forgot Password?
-              </a>
+              </Link>
             </div>
             <button
               type="submit"
@@ -141,9 +143,9 @@ const Login = () => {
           {/* Footer */}
           <div className="text-center text-sm text-gray-500 mt-4">
             Don't have an account?{" "}
-            <a href="/signup" className="text-primaryBlue hover:underline">
+            <Link to="/signup" className="text-primaryBlue hover:underline">
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
