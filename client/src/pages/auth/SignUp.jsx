@@ -19,19 +19,23 @@ const SignUp = () => {
     confirmPassword: "",
   });
 
+  const [passwordStrength, setPasswordStrength] = useState(0);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
   };
 
   const googleAuthUrl = import.meta.env.VITE_API_GOOGLE_AUTH_URL;
 
   const handleGoogleSignIn = () => {
     window.location.href = `${googleAuthUrl}/auth/google`;
-    
   };
 
   const handleSubmit = async (e) => {
@@ -42,9 +46,13 @@ const SignUp = () => {
       return;
     }
 
+    if (passwordStrength < 3) {
+      toast.error("Password is too weak. Please choose a stronger password.");
+      return;
+    }
+
     try {
       dispatch(setLoading(true));
-      // Send registration data to the backend
       const response = await api.post("user/register", {
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -93,7 +101,7 @@ const SignUp = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
             <button
               onClick={handleGoogleSignIn}
-              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2"
+              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors"
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
@@ -102,7 +110,7 @@ const SignUp = () => {
               />
               Sign up with Google
             </button>
-            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2">
+            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center gap-2 hover:bg-slate-100 transition-colors">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
                 alt="Facebook"
@@ -112,6 +120,7 @@ const SignUp = () => {
             </button>
           </div>
           <div className="text-center text-sm text-gray-500 mb-4">- OR -</div>
+
           {/* Form */}
           <form className="space-y-3" onSubmit={handleSubmit}>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -122,7 +131,7 @@ const SignUp = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                   required
                 />
               </div>
@@ -133,7 +142,7 @@ const SignUp = () => {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                   required
                 />
               </div>
@@ -145,38 +154,54 @@ const SignUp = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                 required
               />
             </div>
             <div>
               <label className="block text-text text-sm">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
             <div>
-              <label className="block text-text text-sm">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
-                required
-              />
+              <label className="block text-text text-sm">Confirm Password</label>
+              <div className="relative">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {showConfirmPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-primaryBlue text-white py-2 rounded-lg hover:bg-primaryBlue"
+              className="w-full bg-primaryBlue text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               Create Account
             </button>
