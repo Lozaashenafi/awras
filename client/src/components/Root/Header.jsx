@@ -16,7 +16,6 @@ function Header() {
   const location = useLocation();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  
   // Check if we're on auth pages
   const isAuthPage = ['/login', '/signup'].includes(location.pathname);
 
@@ -130,7 +129,7 @@ function Header() {
               >
                 <div className="relative">
                   <img
-                    src={user.profilePicture || defaultAvatar}
+                    src={`user?.profile?.imageUrl` || defaultAvatar}
                     alt="Profile"
                     className="w-10 h-10 rounded-full border-2 border-primaryBlue object-cover transition-transform group-hover:scale-105"
                   />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
@@ -26,6 +26,8 @@ import CoursePage from "./pages/courses/CoursePage";
 import Dashboard from "./pages/student/Dashboard";
 import StudentsLayout from "./layout/StudentsLayout";
 import PublicRoute from "./components/auth/PublicRoute";
+import RedirectToHome from "./components/util/RedirectToHome";
+import Profile from "./pages/profile/profile";
 
 function App() {
   return (
@@ -53,6 +55,7 @@ function App() {
             <Route path="/teachers" element={<TeachersLayout />}>
               <Route index element={<Teachers />} />
             </Route>
+          {/* Auth Routes */}
           <Route
             path="/login"
             element={
@@ -69,7 +72,10 @@ function App() {
               </PublicRoute>
             }
           />
+            <Route path="/profile" element={<Profile />} />
           </Route>
+
+
           <Route path="/course" element={<AddCourseLayout />}>
             <Route index element={<AddCourse />} />
             <Route path="info" element={<CourseInfo />} />
@@ -80,7 +86,6 @@ function App() {
           <Route path="/student" element={<StudentsLayout />}>
             <Route index element={<Dashboard />} />
           </Route>
-          {/* Auth Routes */}
         </Routes>
       </PersistGate>
     </Provider>
