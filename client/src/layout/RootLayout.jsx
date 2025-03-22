@@ -7,7 +7,9 @@ function RootLayout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="relative top-14 mb-20">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );

@@ -112,7 +112,6 @@ const Login = () => {
                 onChange={handleChange}
                 className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                 required
-                placeholder="Enter your email"
               />
             </div>
             <div>
@@ -124,7 +123,6 @@ const Login = () => {
                 onChange={handleChange}
                 className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                 required
-                placeholder="Enter your password"
               />
             </div>
             <div className="flex justify-end">
