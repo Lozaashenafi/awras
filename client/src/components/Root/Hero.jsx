@@ -31,12 +31,29 @@ function Hero() {
             {t("Knowledge")}
             <span className="text-orange"> {t("and Skill.")}</span>
           </h1>
-          <NavLink
-            to="/signup"
-            className="bg-primaryBlue text-white py-2 px-4 rounded-md  "
-          >
-            {t("Create free account")}
-          </NavLink>
+          {user ? (
+            <div className="flex gap-4">
+              <NavLink
+                to="/student"
+                className="bg-primaryBlue text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+              >
+                {t("Dashboard")}
+              </NavLink>
+              <NavLink
+                to="/courses"
+                className="border border-primaryBlue text-primaryBlue py-2 px-4 rounded-md hover:bg-blue-50 transition-colors"
+              >
+                {t("Browse Courses")}
+              </NavLink>
+            </div>
+          ) : (
+            <NavLink
+              to="/signup"
+              className="bg-primaryBlue text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            >
+              {t("Create free account")}
+            </NavLink>
+          )}
         </div>
         <div className="relative ">
           <div className="sm:w-80 sm:mx-auto">

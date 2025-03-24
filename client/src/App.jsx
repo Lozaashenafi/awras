@@ -26,7 +26,7 @@ import CoursePage from "./pages/courses/CoursePage";
 import Dashboard from "./pages/student/Dashboard";
 import StudentsLayout from "./layout/StudentsLayout";
 import PublicRoute from "./components/auth/PublicRoute";
-import RedirectToHome from "./components/util/RedirectToHome";
+import PrivateRoute from "./components/auth/PrivateRoute";
 import Profile from "./pages/profile/profile";
 
 function App() {
@@ -72,18 +72,46 @@ function App() {
               </PublicRoute>
             }
           />
-            <Route path="/profile" element={<Profile />} />
+            <Route 
+              path="/profile" 
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              } 
+            />
           </Route>
 
 
-          <Route path="/course" element={<AddCourseLayout />}>
+          <Route 
+            path="/course" 
+            element={
+              <PrivateRoute>
+                <AddCourseLayout />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<AddCourse />} />
             <Route path="info" element={<CourseInfo />} />
             <Route path="intro" element={<CourseIntro />} />
             <Route path="structure" element={<CourseStructure />} />
           </Route>
-          <Route path="/request" element={<TeacherRequest />} />
-          <Route path="/student" element={<StudentsLayout />}>
+          <Route 
+            path="/request" 
+            element={
+              <PrivateRoute>
+                <TeacherRequest />
+              </PrivateRoute>
+            } 
+          />
+          <Route 
+            path="/student" 
+            element={
+              <PrivateRoute>
+                <StudentsLayout />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<Dashboard />} />
           </Route>
         </Routes>

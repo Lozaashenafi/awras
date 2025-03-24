@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/features/userSlice";
 import image1 from "../../assets/images/request1.png";
 import image2 from "../../assets/images/request2.png";
 import image3 from "../../assets/images/request3.png";
 
 const TeacherRequest = () => {
+  const [profileImage, setProfileImage] = useState(null);
+  const user = useSelector(selectUser);
+
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen ">
       {/* Left side images */}

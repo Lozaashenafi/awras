@@ -129,7 +129,7 @@ function Header() {
               >
                 <div className="relative">
                   <img
-                    src={`user?.profile?.imageUrl` || defaultAvatar}
+                    src={user?.profile?.imageUrl || defaultAvatar}
                     alt="Profile"
                     className="w-10 h-10 rounded-full border-2 border-primaryBlue object-cover transition-transform group-hover:scale-105"
                   />
@@ -219,7 +219,7 @@ function Header() {
                 <div className="flex items-center space-x-3 p-4 border-b">
                   <div className="relative">
                     <img
-                      src={user.profilePicture || defaultAvatar}
+                      src={user?.profile?.imageUrl || defaultAvatar}
                       alt="Profile"
                       className="w-12 h-12 rounded-full border-2 border-primaryBlue object-cover"
                     />
