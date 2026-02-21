@@ -1,10 +1,9 @@
-# 🎓 Awras (አውራስ) - Ethiopian E-Learning Marketplace
+# 🎓 Awras (አውራስ) - Ethiopian E-Learning
 
 **Awras** is a localized e-learning platform designed specifically for the Ethiopian community. Inspired by platforms like Udemy, Awras allows experts and educators to create, host, and sell courses, while providing students with affordable, high-quality education in local languages.
 
----
 
-## 🇪🇹 Why Awras?
+## Why Awras?
 
 Traditional e-learning platforms often ignore the unique needs of the Ethiopian market. **Awras** (meaning "The Lead" or "Top") solves this by providing:
 
@@ -12,8 +11,6 @@ Traditional e-learning platforms often ignore the unique needs of the Ethiopian 
 - **Local Payment Integration:** Pay using Telebirr, CBE Birr, Chapa, or SantimPay.
 - **Offline Mode:** Downloadable lessons for areas with limited internet connectivity.
 - **Low-Bandwidth Optimization:** Video streaming that works on 3G and 4G networks.
-
----
 
 ## ✨ Key Features
 
@@ -32,9 +29,7 @@ Traditional e-learning platforms often ignore the unique needs of the Ethiopian 
 - **Automatic Payouts:** Withdraw earnings directly to your Ethiopian bank account.
 - **Marketing Tools:** Create coupons and promotional codes for your courses.
 
----
-
-## 🛠️ Tech Stack
+##
 
 <p align="left">
   <img src="./client/public/image1.png" />
@@ -87,13 +82,15 @@ Traditional e-learning platforms often ignore the unique needs of the Ethiopian 
    backend
    Env
 
-   ````
+   ```
    PORT=5000
    JWT_SECRET=your_jwt_secret
-   CHAPA_SECRET_KEY=your_chapa_api_key```
+   CHAPA_SECRET_KEY=your_chapa_api_key
+   ```
 
    Run the App:
 
-   ```# From root directory
+   ```
+   # From root directory
    npm run dev
-   ````
+   ```
