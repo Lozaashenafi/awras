@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/images/awrasWhite.png";
 function Footer() {
   return (
-    <footer className="section-container bg-primaryBlue text-white py-10">
+    <footer className="relative w-screen bottom-0 section-container bg-primaryBlue text-white py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-8">
           {/* Logo and Description */}

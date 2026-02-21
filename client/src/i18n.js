@@ -1,18 +1,40 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import HttpBackend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 
 i18n
-  .use(HttpBackend) // Use the HTTP backend to load translations
-  .use(initReactI18next) // Initialize React i18next
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
-    lng: "en", // Default language
-    fallbackLng: "en", // Fallback language
-    backend: {
-      loadPath: "/locales/{{lng}}/translation.json", // Path to translation files
+    resources: {
+      en: {
+        translation: {
+          home: 'Home',
+          aboutUs: 'About Us',
+          courses: 'Courses',
+          contactUs: 'Contact Us',
+          teachOnAwras: 'Teach on Awras',
+          'Log In': 'Log In',
+          explore: 'Explore',
+          searchPlaceholder: 'Search for anything'
+        }
+      },
+      am: {
+        translation: {
+          home: 'ዋና ገጽ',
+          aboutUs: 'ስለ እኛ',
+          courses: 'ኮርሶች',
+          contactUs: 'አግኙን',
+          teachOnAwras: 'በአውራስ ያስተምሩ',
+          'Log In': 'ግባ',
+          explore: 'ፈልግ',
+          searchPlaceholder: 'ማንኛውንም ነገር ይፈልጉ'
+        }
+      }
     },
+    fallbackLng: "en",
     interpolation: {
-      escapeValue: false, // React already escapes values
+      escapeValue: false,
     },
   });
 

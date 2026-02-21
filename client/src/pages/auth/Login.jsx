@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import api from "../../components/util/api"; // Import the Axios instance
 import { toast, ToastContainer } from "react-toastify"; // Import toast
 import "react-toastify/dist/ReactToastify.css"; // Import toast styles
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/features/userSlice";
+import Image from "../../assets/images/signup.png";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,6 +23,12 @@ const Login = () => {
     });
   };
 
+  const googleAuthUrl = import.meta.env.VITE_API_GOOGLE_AUTH_URL;
+
+  const handleGoogleSignIn = () => {
+    window.location.href = `${googleAuthUrl}/auth/google`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,11 +40,13 @@ const Login = () => {
       });
 
       if (response.data.success) {
+        console.log(response.data);
         // Save the token to localStorage or sessionStorage
+        dispatch(setUser(response.data.data));
         localStorage.setItem("token", response.data.token);
         toast.success("Login successful!");
         // Redirect to dashboard or home page
-        window.location.href = "/";
+        navigate("/");
       }
     } catch (error) {
       console.error(
@@ -45,11 +59,49 @@ const Login = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-center section-container min-h-screen">
+      {/* Left Section */}
+      <div className="w-full md:w-[50%] flex items-center justify-center p-4">
+        <div className="max-w-md text-center">
+          <img
+            src={Image}
+            alt="Login"
+            className="rounded-lg shadow-lg w-full md:w-auto"
+          />
+        </div>
+      </div>
+      {/* Right Section */}
       <div className="w-full md:w-[50%] bg-white flex items-center justify-center p-6 md:p-0 relative">
         <div className="w-full max-w-md mt-5">
+          {/* Header */}
           <h2 className="text-center text-dark text-3xl font-bold mb-6">
-            Login
+            Welcome Back
           </h2>
+
+          {/* Social Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6 text-sm">
+            <button
+              onClick={handleGoogleSignIn}
+              className="px-3 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+                alt="Google"
+                className="h-4"
+              />
+              <p className="line-clamp-1">Sign in with Google</p>
+            </button>
+            <button className="px-4 py-2 bg-slate-50 border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/145/145802.png"
+                alt="Facebook"
+                className="h-4"
+              />
+              <p className="line-clamp-1 ">Sign in with Facebook</p>
+            </button>
+          </div>
+          <div className="text-center text-sm text-gray-500 mb-4">- OR -</div>
+
+          {/* Form */}
           <form className="space-y-3" onSubmit={handleSubmit}>
             <div>
               <label className="block text-text text-sm">Email</label>
@@ -58,7 +110,7 @@ const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                 required
               />
             </div>
@@ -69,22 +121,29 @@ const Login = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2"
+                className="w-full border-b border-gray-300 focus:border-primaryBlue focus:outline-none p-2 transition-colors"
                 required
               />
             </div>
+            <div className="flex justify-end">
+              <Link to="/forgot-password" className="text-sm text-primaryBlue hover:underline">
+                Forgot Password?
+              </Link>
+            </div>
             <button
               type="submit"
-              className="w-full bg-primaryBlue text-white py-2 rounded-lg hover:bg-primaryBlue"
+              className="w-full bg-primaryBlue text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Login
+              Sign In
             </button>
           </form>
+
+          {/* Footer */}
           <div className="text-center text-sm text-gray-500 mt-4">
             Don't have an account?{" "}
-            <a href="/signup" className="text-primaryBlue hover:underline">
+            <Link to="/signup" className="text-primaryBlue hover:underline">
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
